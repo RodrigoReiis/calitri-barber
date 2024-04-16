@@ -3,6 +3,18 @@
 import { object, string, type InferType } from 'yup'
 import type { FormSubmitEvent } from '#ui/types'
 
+const supabase = useSupabaseClient()
+
+const signInWithPassword = async () => {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: `${state.email}`,
+    password: `${state.password}`
+  })    
+  if (error) console.log(error)
+
+  localStorage.setItem('token', `${data.session?.access_token}`)
+}
+
 const schema = object({
   email: string().email('Invalid email').required('Required'),
   password: string()
@@ -17,19 +29,16 @@ const state = reactive({
   password: undefined
 })
 
-async function onSubmit (event: FormSubmitEvent<Schema>) {
-  // Do something with event.data
-  console.log(event.data)
+async function onSubmit () {  
+  signInWithPassword();
 }
 </script>
 
 <template>
-
-<UCard>
+  <UCard>
     <template #header>
       <h1>Logo</h1>
     </template>
-
     <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
       <UFormGroup label="Email" name="email">
         <UInput v-model="state.email" />
