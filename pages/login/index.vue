@@ -32,6 +32,7 @@ const signInWithPassword = async () => {
   if (error) console.log(error)
 
   localStorage.setItem('token', `${data.session?.access_token}`)
+  navigateTo('/home')
 }
 
 const schema = toTypedSchema(z.object({
