@@ -1,12 +1,12 @@
 export default defineNuxtRouteMiddleware((to, from) => {
     const authToken = ''//localStorage.getItem('token')
-    console.log(to)
-    console.log(this)
+    
     const nuxtApp = useNuxtApp()
     console.log(nuxtApp)
-    if(!authToken) {
-      return navigateTo('/login')
-    }
+    console.log(nuxtApp.$refs)
+    //if(!authToken) {
+      //return navigateTo('/login')
+    //}
     if (to.params.id === '1') {
       return abortNavigation()
     }

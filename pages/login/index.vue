@@ -19,9 +19,8 @@ import { object } from 'zod';
 import * as z from 'zod'
 import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
-import { authState } from '~/stores/auth';
 
-const auth = authState;
+const auth = defineStore()
 const supabase = useSupabaseClient()
 let isLoading = false;
 
