@@ -11,12 +11,26 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxt/ui": "^2.13.0",
     "@nuxtjs/supabase": "^1.2.0",
-    "nuxt": "^3.10.1"
+    "@nuxtjs/tailwindcss": "^6.11.4",
+    "nuxt": "^3.10.1",
+    "shadcn-nuxt": "^0.10.2",
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.42.4",
-    "yup": "^1.4.0"
+    "@vee-validate/zod": "^4.12.6",
+    "@vueuse/core": "^10.9.0",
+    "autoprefixer": "^10.4.19",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-vue-next": "^0.368.0",
+    "postcss": "^8.4.38",
+    "radix-vue": "^1.7.0",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.12.6",
+    "yup": "^1.4.0",
+    "zod": "^3.22.4"
   }
 }
