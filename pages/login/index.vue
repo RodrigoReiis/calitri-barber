@@ -59,7 +59,7 @@ async function onSubmit() {
 </script>
 
 <template >
-  <div class="m-5 mt-5 justify-middle align-middle flex flex-col">
+  <div class="m-5 mt-5 h-100 justify-middle align-middle flex flex-col">
     <Card>
       <CardHeader>
         <CardTitle>Logo</CardTitle>
@@ -67,7 +67,7 @@ async function onSubmit() {
         <CardDescription>Entre no sistema para realizar o seu agendamento</CardDescription>
       </CardHeader>
       <CardContent>      
-      <form @submit="onSubmit">
+      <form @submit="onSubmit" class="space-y-6">
         <FormField v-slot="{ componentField }" name="email">
           <FormItem>
             <FormLabel>E-mail</FormLabel>
@@ -87,9 +87,14 @@ async function onSubmit() {
           </FormItem>
         </FormField>
       </form>
+      <div class="flex justify-between mt-5">
+        <section>Lembrar dados</section>
+        <section>Esqueceu a senha?</section>
+      </div>
       </CardContent>
-      <CardFooter>
-        <Button type="submit" @click="onSubmit" class="bg-sky-800 w-full mt-5">Entrar</Button>
+      <CardFooter class="flex flex-col space-y-3">
+        <Button type="submit" @click="onSubmit" class="bg-sky-600 w-full mt-5">Entrar</Button>
+        <section>Ainda não possui cadastro? Cadastrar </section>
       </CardFooter>
     </Card>
   </div>
