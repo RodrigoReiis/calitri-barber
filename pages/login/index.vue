@@ -49,9 +49,11 @@ const state = reactive({
   password: undefined
 })
 
-const onSubmit = handleSubmit((values) => {
-  console.log(values);
-})
+async function onSubmit() {
+  signInWithPassword()
+}
+
+
 
 
 </script>
@@ -67,22 +69,27 @@ const onSubmit = handleSubmit((values) => {
       <CardContent>      
       <form @submit="onSubmit">
         <FormField v-slot="{ componentField }" name="email">
-        {{  componentField }}
           <FormItem>
             <FormLabel>E-mail</FormLabel>
             <FormControl>
               <Input type="text" placeholder="Digite seu e-mail" v-bind="componentField" v-model="state.email"/>
             </FormControl>
-            <FormDescription>teste</FormDescription>
             <FormMessage></FormMessage>
           </FormItem>
         </FormField>
-        
-      <Button type="submit">sub</Button>
+        <FormField v-slot="{ componentField }" name="password">
+          <FormItem>
+            <FormLabel>Senha</FormLabel>
+            <FormControl>
+              <Input type="password" placeholder="Digite a sua senha" v-bind="componentField" v-model="state.password"/>
+            </FormControl>
+            <FormMessage></FormMessage>
+          </FormItem>
+        </FormField>
       </form>
-        Card Content
       </CardContent>
       <CardFooter>
+        <Button type="submit" @click="onSubmit" class="bg-sky-800 w-full mt-5">Entrar</Button>
       </CardFooter>
     </Card>
   </div>
