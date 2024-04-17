@@ -19,7 +19,9 @@ import { object } from 'zod';
 import * as z from 'zod'
 import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
+import { authState } from '~/stores/auth';
 
+const auth = authState;
 const supabase = useSupabaseClient()
 let isLoading = false;
 
@@ -32,6 +34,7 @@ const signInWithPassword = async () => {
   if (error) console.log(error)
 
   localStorage.setItem('token', `${data.session?.access_token}`)
+  auth.value = data.session?.access_token;
   navigateTo('/home')
 }
 
