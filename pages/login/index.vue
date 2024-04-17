@@ -1,7 +1,6 @@
 
 <script setup lang="ts">
 import { object, string, type InferType } from 'yup'
-import type { FormSubmitEvent } from '#ui/types'
 
 const supabase = useSupabaseClient()
 
@@ -34,8 +33,8 @@ async function onSubmit () {
 }
 </script>
 
-<template>
-  <UCard>
+<template >
+  <UCard class="m-5 bg-gray-100 justify-middle align-middle flex flex-col space-y-5">
     <template #header>
       <h1>Logo</h1>
     </template>
